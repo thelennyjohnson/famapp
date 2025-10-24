@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fam.app - Create Wealth With Your Audience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #8A2BE2;
+        }
+
+        .nav-back {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .nav-back:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: -0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            animation-delay: -1s;
+        }
+
+        .floating-icon:nth-child(3) {
+            bottom: 40%;
+            left: 20%;
+            animation-delay: -2s;
+        }
+
+        .floating-icon:nth-child(4) {
+            bottom: 30%;
+            right: 10%;
+            animation-delay: -3s;
+        }
+
+        .floating-icon:nth-child(5) {
+            top: 50%;
+            left: 5%;
+            animation-delay: -4s;
+        }
+
+        .floating-icon:nth-child(6) {
+            top: 60%;
+            right: 25%;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotateX(10deg) rotateY(10deg);
+            }
+            50% {
+                transform: translateY(-10px) rotateX(-5deg) rotateY(-5deg);
+            }
+            75% {
+                transform: translateY(-15px) rotateX(5deg) rotateY(-10deg);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #888;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 25px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 200px;
+        }
+
+        .btn-primary {
+            background: #8A2BE2;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #7B1FA2;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Creators Section */
+        .creators-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .creators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .creator-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .creator-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .creator-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .creator-right {
+            text-align: right;
+        }
+
+        .creator-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .creator-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .creator-info h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .creator-genre {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .key-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #8A2BE2;
+            margin-bottom: 4px;
+        }
+
+        .current-key-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8A2BE2;
+            text-align: center;
+            margin: 24px 0;
+        }
+
+        .tab-switch {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 4px;
+            margin: 24px 0;
+            position: relative;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tab-button.active {
+            color: #fff;
+        }
+
+        .tab-slider {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: calc(50% - 4px);
+            height: calc(100% - 8px);
+            background: #8A2BE2;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            z-index: 1;
+        }
+
+        .tab-slider.right {
+            transform: translateX(100%);
+        }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            height: 300px;
+            margin-bottom: 24px;
+        }
+
+        .price-chart {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .chart-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .price-change {
+            font-size: 0.9rem;
+        }
+
+        .price-up { color: #32D74B; }
+        .price-down { color: #FF3B30; }
+
+        /* Creator Profile Page */
+        .creator-profile {
+            display: none;
+            padding: 120px 0 60px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 24px;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .profile-bio {
+            color: #888;
+            max-width: 500px;
+            margin: 0 auto 24px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .disclaimer {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 32px;
+            color: #FFA500;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .community-preview {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            filter: blur(2px);
+        }
+
+        .community-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .overlay-content {
+            padding: 24px;
+        }
+
+        .post {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        /* Buy Keys Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #1C1C1E;
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .keys-input {
+            margin-bottom: 24px;
+        }
+
+        .keys-slider {
+            width: 100%;
+            margin: 16px 0;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+        }
+
+        .keys-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #8A2BE2;
+            cursor: pointer;
+        }
+
+        .perks-list {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .perk-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            opacity: 0.5;
+        }
+
+        .perk-item.unlocked {
+            opacity: 1;
+        }
+
+        .perk-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Launch Community Page */
+        .launch-community {
+            display: none;
+            padding: 120px 0 60px;
+        }
+
+        .form-section {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #8A2BE2;
+        }
+
+        .perks-section {
+            margin: 32px 0;
+        }
+
+        .perk-editor {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .add-perk-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            width: 100%;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .add-perk-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .how-it-works {
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(0, 122, 255, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .creators-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Fam.app</div>
+                <button class="nav-back hidden" onclick="goHome()">← Back</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Homepage -->
+    <div id="homepage">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Create Wealth With Your Audience</h1>
+                <p>Fam.app allows you to support creators you love and grow with the community.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="showCreators()">See Creators</button>
+                    <button class="btn btn-secondary" onclick="showLaunchCommunity()">Launch Community</button>
+                </div>
+                <div class="floating-icons">
+                    <div class="floating-icon">🍕</div>
+                    <div class="floating-icon">🎮</div>
+                    <div class="floating-icon">📱</div>
+                    <div class="floating-icon">🎵</div>
+                    <div class="floating-icon">🏋️</div>
+                    <div class="floating-icon">😂</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Creators -->
+        <section class="creators-section">
+            <div class="container">
+                <h2 class="section-title">Trending Creators</h2>
+                <div class="creators-grid" id="creatorsGrid">
+                    <!-- Creator cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Creator Profile -->
+    <div id="creatorProfile" class="creator-profile">
+        <div class="container">
+            <div class="profile-header">
+                <img id="profileAvatar" class="profile-avatar" src="" alt="Profile">
+                <h1 id="profileName" class="profile-name"></h1>
+                <p id="profileBio" class="profile-bio"></p>
+                <div class="social-links" id="socialLinks">
+                    <!-- Social links populated by JS -->
+                </div>
+                <div id="currentKeyPrice" class="current-key-price"></div>
+                <div class="profile-actions">
+                    <button class="btn btn-primary" onclick="showBuyKeysModal()">Buy Keys</button>
+                    <button class="btn btn-secondary" onclick="showSellMessage()">Sell Keys</button>
+                </div>
+                <div class="tab-switch">
+                    <div class="tab-slider" id="tabSlider"></div>
+                    <button class="tab-button active" onclick="switchTab('community')">Community</button>
+                    <button class="tab-button" onclick="switchTab('history')">Key History</button>
+                </div>
+            </div>
+            <div class="disclaimer">
+                ⚠️ Keys allow you to access community and perks. It is not an investment, the price of keys can go down or to $0. <a href="#" style="color: #8A2BE2;">Learn more</a>
+            </div>
+            <div id="communityContent">
+                <div class="community-preview">
+                    <div class="post">
+                        <strong>@creator</strong> Just dropped some exclusive content! 🔥
+                    </div>
+                    <div class="post">
+                        <strong>@fan1</strong> This community is amazing! Love the behind-the-scenes content
+                    </div>
+                    <div class="post">
+                        <strong>@creator</strong> Poll: What should I work on next? A) New music B) Gaming stream C) Q&A
+                    </div>
+                    <div class="community-overlay">
+                        <div class="overlay-content">
+                            <h3>🔒 Community Access Required</h3>
+                            <p>You need Keys to access the community</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="historyContent" style="display: none;">
+                <div class="chart-container">
+                    <div class="price-chart">
+                        <svg class="chart-svg" id="priceChart"></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Launch Community -->
+    <div id="launchCommunity" class="launch-community">
+        <div class="container">
+            <div class="form-section">
+                <h1 style="text-align: center; margin-bottom: 32px;">Create your Fam account</h1>
+                
+                <div class="form-group">
+                    <label class="form-label">Creator Name</label>
+                    <input type="text" class="form-input" placeholder="Your creator name">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Bio</label>
+                    <textarea class="form-input" rows="4" placeholder="Tell your fans about yourself..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Social Media Links</label>
+                    <input type="url" class="form-input" placeholder="YouTube URL" style="margin-bottom: 8px;">
+                    <input type="url" class="form-input" placeholder="Twitter URL" style="margin-bottom: 8px;">
+                    <input type="url" class="form-input" placeholder="Spotify URL">
+                </div>
+                
+                <div class="perks-section">
+                    <label class="form-label">Community Perks</label>
+                    <div class="perk-editor">
+                        <input type="text" class="form-input" value="Chat room access" style="flex: 1; margin: 0;">
+                        <span style="color: #888;">$</span>
+                        <input type="number" class="form-input" value="5" style="width: 80px; margin: 0;">
+                    </div>
+                    <div id="additionalPerks"></div>
+                    <button class="add-perk-btn" onclick="addPerk()">+ Add Perk</button>
+                </div>
+                
+                <div class="how-it-works">
+                    <h3 style="margin-bottom: 16px;">How it works:</h3>
+                    <p>With your Fam account, your fans can support you by owning keys to access community and receive perks. You get 20% when they buy and 5% on every trade. We keep 5% on every trade.</p>
+                </div>
+                
+                <button class="btn btn-primary" style="width: 100%;">Create Community $5</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buy Keys Modal -->
+    <div id="buyKeysModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Buy Keys</h2>
+                <button class="close-btn" onclick="closeBuyKeysModal()">&times;</button>
+            </div>
+            <div class="keys-input">
+                <label class="form-label">Number of Keys</label>
+                <input type="range" class="keys-slider" min="1" max="200" value="1" id="keysSlider" oninput="updateKeysPurchase()">
+                <div style="display: flex; justify-content: space-between; margin: 8px 0;">
+                    <span id="keysCount">1 Key</span>
+                    <span id="totalCost">$5.00</span>
+                </div>
+            </div>
+            <div class="perks-list">
+                <h3 style="margin-bottom: 16px;">Unlocked Perks:</h3>
+                <div class="perk-item unlocked" data-threshold="1">
+                    <span class="perk-icon">💬</span>
+                    <span>Community Chat Access ($5)</span>
+                </div>
+                <div class="perk-item" data-threshold="5">
+                    <span class="perk-icon">🗳️</span>
+                    <span>Community Votes & Polls ($25)</span>
+                </div>
+                <div class="perk-item" data-threshold="10">
+                    <span class="perk-icon">💌</span>
+                    <span>Direct Messages with Creator ($50)</span>
+                </div>
+                <div class="perk-item" data-threshold="20">
+                    <span class="perk-icon">👕</span>
+                    <span>Priority Merch Access ($100)</span>
+                </div>
+                <div class="perk-item" data-threshold="200">
+                    <span class="perk-icon">⭐</span>
+                    <span>OG Status ($1000)</span>
+                </div>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Buy Keys</button>
+        </div>
+    </div>
+
+    <script>
+        // Mock data for creators
+        const creators = [
+            {
+                id: 1,
+                name: "Luna Martinez",
+                bio: "Singer-songwriter sharing my musical journey and connecting with fans through intimate performances.",
+                genre: "Music",
+                avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=400&h=400&fit=crop&crop=face",
+                keyPrice: 8.50,
+                priceChange: 12.5,
+                social: { youtube: "#", twitter: "#", spotify: "#" }
+            },
+            {
+                id: 2,
+                name: "Jake Thompson",
+                bio: "Stand-up comedian bringing laughs and behind-the-scenes content from the comedy world.",
+                genre: "Comedy",
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+                keyPrice: 12.75,
+                priceChange: -3.2,
+                social: { youtube: "#", twitter: "#" }
+            },
+            {
+                id: 3,
+                name: "Zara Chen",
+                bio: "Pro gamer and streamer. Join me for epic gaming sessions and exclusive gameplay tips!",
+                genre: "Gaming",
+                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+                keyPrice: 15.20,
+                priceChange: 8.7,
+                social: { youtube: "#", twitter: "#" }
+            },
+            {
+                id: 4,
+                name: "Marcus Johnson",
+                bio: "Fitness coach helping you achieve your goals. Get access to exclusive workout plans and nutrition tips.",
+                genre: "Fitness",
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+                keyPrice: 9.80,
+                priceChange: 5.1,
+                social: { youtube: "#", twitter: "#" }
+            },
+            {
+                id: 5,
+                name: "Sophia Rodriguez",
+                bio: "Lifestyle vlogger sharing fashion, travel, and daily life moments with my amazing community.",
+                genre: "Lifestyle",
+                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face",
+                keyPrice: 11.40,
+                priceChange: -1.8,
+                social: { youtube: "#", twitter: "#", spotify: "#" }
+            },
+            {
+                id: 6,
+                name: "Alex Kim",
+                bio: "Tech reviewer and developer. Get early access to tech reviews and coding tutorials.",
+                genre: "Tech",
+                avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+                keyPrice: 13.65,
+                priceChange: 15.3,
+                social: { youtube: "#", twitter: "#" }
+            },
+            {
+                id: 7,
+                name: "Maya Patel",
+                bio: "Food blogger and chef sharing recipes, cooking tips, and culinary adventures from around the world.",
+                genre: "Food",
+                avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face",
+                keyPrice: 7.25,
+                priceChange: 4.2,
+                social: { youtube: "#", twitter: "#" }
+            }
+        ];
+
+        let currentCreator = null;
+
+        // Initialize the page
+        function initializePage() {
+            renderCreators();
+        }
+
+        function renderCreators() {
+            const grid = document.getElementById('creatorsGrid');
+            grid.innerHTML = creators.map(creator => `
+                <div class="creator-card" onclick="showCreatorProfile(${creator.id})">
+                    <div class="creator-left">
+                        <img class="creator-avatar" src="${creator.avatar}" alt="${creator.name}">
+                        <div class="creator-info">
+                            <h3>${creator.name}</h3>
+                            <div class="creator-genre">${creator.genre}</div>
+                        </div>
+                    </div>
+                    <div class="creator-right">
+                        <div class="key-price">${creator.keyPrice.toFixed(2)}</div>
+                        <div class="price-change ${creator.priceChange > 0 ? 'price-up' : 'price-down'}">
+                            ${creator.priceChange > 0 ? '+' : ''}${creator.priceChange.toFixed(1)}% (7d)
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showCreators() {
+            document.getElementById('creatorsGrid').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showCreatorProfile(creatorId) {
+            currentCreator = creators.find(c => c.id === creatorId);
+            if (!currentCreator) return;
+
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('launchCommunity').style.display = 'none';
+            document.getElementById('creatorProfile').style.display = 'block';
+            document.querySelector('.nav-back').classList.remove('hidden');
+
+            // Populate profile data
+            document.getElementById('profileAvatar').src = currentCreator.avatar;
+            document.getElementById('profileName').textContent = currentCreator.name;
+            document.getElementById('profileBio').textContent = currentCreator.bio;
+            document.getElementById('currentKeyPrice').textContent = `${currentCreator.keyPrice.toFixed(2)} per key`;
+
+            // Populate social links
+            const socialLinks = document.getElementById('socialLinks');
+            socialLinks.innerHTML = Object.entries(currentCreator.social).map(([platform, url]) => `
+                <a href="${url}" class="social-link">
+                    ${getSocialIcon(platform)}
+                </a>
+            `).join('');
+
+            // Generate and render price chart
+            generatePriceChart();
+        }
+
+        function getSocialIcon(platform) {
+            const icons = {
+                youtube: '📺',
+                twitter: '🐦',
+                spotify: '🎵'
+            };
+            return icons[platform] || '🔗';
+        }
+
+        function showLaunchCommunity() {
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('creatorProfile').style.display = 'none';
+            document.getElementById('launchCommunity').style.display = 'block';
+            document.querySelector('.nav-back').classList.remove('hidden');
+        }
+
+        function goHome() {
+            document.getElementById('homepage').style.display = 'block';
+            document.getElementById('creatorProfile').style.display = 'none';
+            document.getElementById('launchCommunity').style.display = 'none';
+            document.querySelector('.nav-back').classList.add('hidden');
+        }
+
+        function showBuyKeysModal() {
+            document.getElementById('buyKeysModal').style.display = 'flex';
+            updateKeysPurchase();
+        }
+
+        function closeBuyKeysModal() {
+            document.getElementById('buyKeysModal').style.display = 'none';
+        }
+
+        function updateKeysPurchase() {
+            const slider = document.getElementById('keysSlider');
+            const keys = parseInt(slider.value);
+            const pricePerKey = currentCreator ? currentCreator.keyPrice : 5;
+            const total = keys * pricePerKey;
+
+            document.getElementById('keysCount').textContent = `${keys} Key${keys > 1 ? 's' : ''}`;
+            document.getElementById('totalCost').textContent = `$${total.toFixed(2)}`;
+
+            // Update perk unlocks
+            const perkItems = document.querySelectorAll('.perk-item');
+            perkItems.forEach(item => {
+                const threshold = parseInt(item.dataset.threshold);
+                if (keys >= threshold) {
+                    item.classList.add('unlocked');
+                } else {
+                    item.classList.remove('unlocked');
+                }
+            });
+        }
+
+        function showSellMessage() {
+            alert('You have no keys to sell');
+        }
+
+        function addPerk() {
+            const additionalPerks = document.getElementById('additionalPerks');
+            const perkDiv = document.createElement('div');
+            perkDiv.className = 'perk-editor';
+            perkDiv.innerHTML = `
+                <input type="text" class="form-input" placeholder="Perk description" style="flex: 1; margin: 0;">
+                <span style="color: #888;">$</span>
+                <input type="number" class="form-input" placeholder="0" style="width: 80px; margin: 0;">
+                <button onclick="this.parentElement.remove()" style="background: none; border: none; color: #FF3B30; cursor: pointer; padding: 0 8px;">✕</button>
+            `;
+            additionalPerks.appendChild(perkDiv);
+        }
+
+        function switchTab(tab) {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabSlider = document.getElementById('tabSlider');
+            const communityContent = document.getElementById('communityContent');
+            const historyContent = document.getElementById('historyContent');
+
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            if (tab === 'community') {
+                tabButtons[0].classList.add('active');
+                tabSlider.classList.remove('right');
+                communityContent.style.display = 'block';
+                historyContent.style.display = 'none';
+            } else {
+                tabButtons[1].classList.add('active');
+                tabSlider.classList.add('right');
+                communityContent.style.display = 'none';
+                historyContent.style.display = 'block';
+            }
+        }
+
+        function generatePriceChart() {
+            const svg = document.getElementById('priceChart');
+            const width = 500;
+            const height = 250;
+            const padding = 40;
+            
+            // Generate 30 days of mock price data
+            const basePrice = currentCreator.keyPrice;
+            const priceData = [];
+            let price = basePrice * 0.8; // Start 20% below current price
+            
+            for (let i = 0; i < 30; i++) {
+                const change = (Math.random() - 0.5) * 0.4; // Random change up to 20%
+                price *= (1 + change);
+                price = Math.max(0.1, price); // Don't go below $0.10
+                priceData.push({ day: i, price: price });
+            }
+            
+            // Set final price to current price
+            priceData[29].price = basePrice;
+            
+            const minPrice = Math.min(...priceData.map(d => d.price));
+            const maxPrice = Math.max(...priceData.map(d => d.price));
+            const priceRange = maxPrice - minPrice;
+            
+            // Create SVG content
+            svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+            svg.innerHTML = '';
+            
+            // Create gradient
+            const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+            const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+            gradient.setAttribute('id', 'chartGradient');
+            gradient.setAttribute('x1', '0%');
+            gradient.setAttribute('y1', '0%');
+            gradient.setAttribute('x2', '0%');
+            gradient.setAttribute('y2', '100%');
+            
+            const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+            stop1.setAttribute('offset', '0%');
+            stop1.setAttribute('stop-color', '#8A2BE2');
+            stop1.setAttribute('stop-opacity', '0.8');
+            
+            const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+            stop2.setAttribute('offset', '100%');
+            stop2.setAttribute('stop-color', '#8A2BE2');
+            stop2.setAttribute('stop-opacity', '0.1');
+            
+            gradient.appendChild(stop1);
+            gradient.appendChild(stop2);
+            defs.appendChild(gradient);
+            svg.appendChild(defs);
+            
+            // Create path for area under curve
+            let pathData = `M ${padding} ${height - padding}`;
+            priceData.forEach((point, index) => {
+                const x = padding + (index / 29) * (width - 2 * padding);
+                const y = padding + (1 - (point.price - minPrice) / priceRange) * (height - 2 * padding);
+                if (index === 0) {
+                    pathData += ` L ${x} ${y}`;
+                } else {
+                    pathData += ` L ${x} ${y}`;
+                }
+            });
+            pathData += ` L ${width - padding} ${height - padding} Z`;
+            
+            const area = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            area.setAttribute('d', pathData);
+            area.setAttribute('fill', 'url(#chartGradient)');
+            svg.appendChild(area);
+            
+            // Create line
+            let lineData = '';
+            priceData.forEach((point, index) => {
+                const x = padding + (index / 29) * (width - 2 * padding);
+                const y = padding + (1 - (point.price - minPrice) / priceRange) * (height - 2 * padding);
+                lineData += index === 0 ? `M ${x} ${y}` : ` L ${x} ${y}`;
+            });
+            
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            line.setAttribute('d', lineData);
+            line.setAttribute('stroke', '#8A2BE2');
+            line.setAttribute('stroke-width', '3');
+            line.setAttribute('fill', 'none');
+            svg.appendChild(line);
+            
+            // Add price labels
+            const minLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            minLabel.setAttribute('x', '5');
+            minLabel.setAttribute('y', height - padding + 5);
+            minLabel.setAttribute('fill', '#888');
+            minLabel.setAttribute('font-size', '12');
+            minLabel.textContent = `${minPrice.toFixed(2)}`;
+            svg.appendChild(minLabel);
+            
+            const maxLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            maxLabel.setAttribute('x', '5');
+            maxLabel.setAttribute('y', padding);
+            maxLabel.setAttribute('fill', '#888');
+            maxLabel.setAttribute('font-size', '12');
+            maxLabel.textContent = `${maxPrice.toFixed(2)}`;
+            svg.appendChild(maxLabel);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('buyKeysModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBuyKeysModal();
+            }
+        });
+
+        // Initialize page on load
+        initializePage();
+    </script>
+</body>
+</html>
